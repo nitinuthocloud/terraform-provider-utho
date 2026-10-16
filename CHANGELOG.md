@@ -3,6 +3,28 @@
 All notable changes to this provider are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/).
 
+## [0.8.0] - 2026-10-16
+
+### Breaking
+
+- `utho_vpc`: the `planid` argument is removed (a VPC has no plan). Remove `planid` from your `utho_vpc` blocks before you upgrade, otherwise `terraform plan` fails with "Unsupported argument". `utho_cloud` keeps `planid`.
+
+### Added
+
+- `utho_ebs` resource for Elastic Block Storage volumes.
+- `utho_ebs_attachment` resource to attach an EBS volume to a cloud instance.
+- `utho_ebs_dczones` data source listing the locations where EBS is available.
+- EBS examples (`examples/ebs/basic`, `examples/ebs/with-instance`) and docs; Elastic Block Storage in the Supported Services table.
+
+### Changed
+
+- `utho_cloud_snapshot`: after creating a snapshot, the provider waits up to 3 minutes for its ID to appear, looking it up in the instance's own location, instead of a single lookup.
+- Clearer schema descriptions across resources, plus doc guidance on SSL/TLS, naming constraints, boot sources and plan names.
+
+### Fixed
+
+- Restored the Best Practices, Examples Catalog and Migrating from v0.6.x guides, and the GitHub issues link in the troubleshooting guide.
+
 ## [0.7.1] - 2026-10-07
 
 ### Added

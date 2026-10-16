@@ -37,7 +37,7 @@ func (p *uthoProvider) Schema(_ context.Context, _ provider.SchemaRequest, resp 
 		Description: "Interact with Utho Cloud resources.",
 		Attributes: map[string]schema.Attribute{
 			"api_key": schema.StringAttribute{
-				Required:    true,
+				Optional:    true,
 				Sensitive:   true,
 				Description: "Utho API key. Can also be set via UTHO_API_KEY environment variable.",
 			},
